@@ -1,9 +1,13 @@
-const http = require("http");
+import express from "express";
 
- const server = http.createServer((req, res)=>{
-    console.log("server is working....")
-})
+const app = express()
 
-server.listen(5000, "localhost", ()=>{
-    console.log("server is running on port 5000")
-})
+app.get('/' , (req , res) => {
+    const pathlocation = path.resolve("./index.html");
+
+    res.render();
+});
+
+app.listen(5000 , () => {
+    console.log('Server is running on port 5000');
+});
