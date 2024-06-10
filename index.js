@@ -1,11 +1,17 @@
 import express from "express";
+import path from "path";
 
 const app = express()
 
-app.get('/' , (req , res) => {
-    const pathlocation = path.resolve("./index.html");
+app.use(express.static(path.join(path.resolve(), "public")));
 
-    res.render();
+app.set("view engine" , "ejs");
+// setting up ejs engine
+
+app.get('/' , (req , res) => {
+
+    // res.render("index");
+    res.sendFile("index.html");
 });
 
 app.listen(5000 , () => {
